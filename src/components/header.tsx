@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -13,6 +13,7 @@ import {
 } from "./ui/navigation-menu";
 import { Button } from "./ui/button";
 import { SearchIcon } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { cn } from "@/lib/utils";
 
 const items = [
@@ -26,11 +27,17 @@ const items = [
 export default function Header() {
 	const [open, setOpen] = useState(false);
 	const pathname = usePathname();
+	const isMobile = useIsMobile(1024);
+
+	useEffect(() => {
+		document.documentElement.classList.toggle("overflow-hidden", open && isMobile);
+		return () => document.documentElement.classList.remove("overflow-hidden");
+	}, [open, isMobile]);
 
 	return (
 		<header
 			className={cn(
-				"fixed top-0 z-50 h-[300vmax] w-full overflow-hidden after:absolute after:top-0 after:right-0 after:-z-10 after:h-[300vmax] after:w-[300vmax] after:translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-[#121212]/90 after:transition-transform after:duration-400 after:ease-in-out after:content-['']",
+				"fixed top-0 z-50 h-[300vmax] w-full overflow-hidden after:absolute after:top-0 after:right-0 after:-z-10 after:h-[300vmax] after:w-[300vmax] after:translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-[#121212]/90 after:transition-transform after:duration-400 after:ease-in-out after:content-[''] lg:h-auto lg:after:bg-transparent",
 				open ? "after:scale-100" : "after:pointer-events-none after:scale-0 after:delay-800",
 			)}
 		>
@@ -57,7 +64,7 @@ export default function Header() {
 												asChild
 												className={cn(
 													navigationMenuTriggerStyle(),
-													"bg-transparent uppercase",
+													"hover:text-yellow bg-transparent uppercase hover:bg-transparent",
 													pathname === item.href && "text-yellow",
 												)}
 											>
@@ -123,9 +130,8 @@ export default function Header() {
 							<NavigationMenuItem
 								key={item.title}
 								className={cn(
-									"transition-[opacity,transform] duration-300 will-change-transform",
-									open ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-0",
-									open && "translate-y-0 opacity-100",
+									"transition-[opacity,translate] duration-300 will-change-transform",
+									open ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0",
 								)}
 								style={{
 									transitionDelay: open ? `${(index + 2) * 100}ms` : `${(items.length - index + 2) * 100}ms`,
@@ -148,9 +154,8 @@ export default function Header() {
 
 				<Button
 					className={cn(
-						"mt-2 rounded-none bg-white font-bold uppercase transition-[opacity,transform] duration-300 will-change-transform",
-						open ? "-translate-y-4 opacity-0 delay-700" : "translate-y-0 opacity-0 delay-0",
-						open && "translate-y-0 opacity-100",
+						"mt-2 rounded-none bg-white font-bold uppercase transition-[opacity,translate] duration-300 will-change-transform",
+						open ? "translate-y-0 opacity-100 delay-700" : "-translate-y-4 opacity-0 delay-0",
 					)}
 					size="lg"
 				>
