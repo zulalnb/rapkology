@@ -1,0 +1,20 @@
+# Build outputs
+.next
+out
+dist
+build
+
+# Dependencies
+node_modules
+
+# Coverage & generated
+coverage
+*.min.js
+*.min.css
+
+# Environment
+.env*
+.vercel
+
+# Static assets
+public
