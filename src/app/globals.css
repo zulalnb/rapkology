@@ -95,3 +95,25 @@
 		@apply cursor-pointer;
 	}
 }
+
+@layer utilities {
+	.hero-bullet {
+		@apply size-2.5 cursor-pointer rounded-full bg-white opacity-100! transition-all;
+	}
+
+	.swiper-pagination-bullet-active.hero-bullet {
+		@apply bg-yellow! scale-150!;
+	}
+
+	@media (max-width: 768px) {
+		.hero-bullet {
+			@apply bg-white!;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.hero-bullet {
+			@apply bg-[#1e1e1e]!;
+		}
+	}
+}
