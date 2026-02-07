@@ -8,10 +8,6 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-
 const data = [
 	{
 		image: {
@@ -45,16 +41,17 @@ export default function Hero() {
 
 	return (
 		<section className="relative h-svh w-full">
+			<h1 className="sr-only">Türkçe rap ve dünya müzik haberlerini takip et</h1>
 			<div
 				className={cn(
-					"z-20 mx-auto mt-27 w-70 max-w-90 px-2 text-center md:absolute md:top-40 md:right-16 md:mt-auto md:w-115 md:max-w-none md:items-start md:px-0 md:text-left lg:right-35",
+					"relative top-0 z-20 mx-auto mt-27 w-70 max-w-90 px-2 text-center md:absolute md:top-40 md:right-16 md:mt-auto md:h-auto md:w-115 md:max-w-none md:items-start md:px-0 md:text-left lg:right-35",
 					slides[active]?.color,
 				)}
 			>
-				<h1 className="font-saira-cond mb-6 text-3xl font-bold tracking-[-2%] uppercase lg:text-6xl">
+				<h2 className="font-saira-cond mb-6 text-3xl font-bold tracking-[-2%] uppercase lg:text-6xl">
 					{slides[active]?.title}
-				</h1>
-				<p>{slides[active]?.description}</p>
+				</h2>
+				<p className="text-sm md:text-base">{slides[active]?.description}</p>
 				<div className="mt-4 drop-shadow-[5px_5px_0_#000000]">
 					<Button
 						size="lg"
@@ -65,7 +62,7 @@ export default function Hero() {
 				</div>
 				<div className="hero-pagination pointer-events-auto mt-10 flex items-center justify-center gap-2 md:justify-start" />
 			</div>
-			<div className="w-full overflow-hidden md:h-svh">
+			<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-svh">
 				<Swiper
 					modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
 					navigation={{
@@ -96,7 +93,6 @@ export default function Hero() {
 						<ArrowLeftIcon className="size-8 text-white" />
 					</Button>
 
-					{/* RIGHT */}
 					<Button
 						size="icon-lg"
 						variant="ghost"
@@ -107,14 +103,14 @@ export default function Hero() {
 
 					{data.map((item, index) => (
 						<SwiperSlide key={index}>
-							<div className="relative h-[70vh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.png')] after:bg-cover after:bg-center after:opacity-30 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
+							<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.png')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
 								<div className={cn("absolute inset-0", item.image.loc)}>
 									<Image
 										src={item.image.path}
 										alt={item.image.alt}
 										fill
 										priority
-										className={cn(item.image.className)}
+										className={item.image.className}
 									/>
 								</div>
 								<div className="absolute -bottom-12 left-0 z-10 w-full leading-none md:-bottom-66 lg:-bottom-48">
