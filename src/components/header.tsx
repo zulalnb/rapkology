@@ -37,11 +37,13 @@ export default function Header() {
 	return (
 		<header
 			className={cn(
-				"fixed top-0 z-50 h-[300vmax] w-full overflow-hidden after:absolute after:top-0 after:right-0 after:-z-10 after:h-[300vmax] after:w-[300vmax] after:translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-[#121212]/90 after:transition-transform after:duration-400 after:ease-in-out after:content-[''] lg:h-auto lg:after:bg-transparent",
-				open ? "after:scale-100" : "after:pointer-events-none after:scale-0 after:delay-800",
+				"fixed top-0 z-50 w-full overflow-hidden after:absolute after:top-0 after:right-0 after:-z-10 after:h-[300vmax] after:w-[300vmax] after:translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-[#121212]/90 after:transition-all after:duration-400 after:ease-in-out after:content-[''] lg:h-auto lg:after:bg-transparent",
+				open
+					? "after:scale-100"
+					: "pointer-events-none after:pointer-events-none after:scale-0 after:delay-800",
 			)}
 		>
-			<div className="relative z-10 h-20 bg-[#121212]/10 backdrop-blur-xl">
+			<div className="pointer-events-auto relative z-10 h-20 bg-[#121212]/10 backdrop-blur-xl">
 				<div className="container mx-auto px-4 md:px-1">
 					<div className="flex h-20 items-center justify-between">
 						<div className="flex lg:gap-14 xl:gap-20">
@@ -120,7 +122,7 @@ export default function Header() {
 			{/* Mobile Menu */}
 			<div
 				className={cn(
-					"relative z-10 mt-10 flex h-[calc(100dvh-80px)] flex-col items-center transition-opacity duration-300 lg:hidden",
+					"pointer-events-auto relative z-10 mt-10 flex h-[calc(100dvh-80px)] flex-col items-center transition-opacity duration-300 lg:hidden",
 					open ? "opacity-100" : "pointer-events-none opacity-0 delay-600",
 				)}
 			>
