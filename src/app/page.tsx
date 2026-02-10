@@ -1,6 +1,7 @@
 import Hero from "@/components/hero";
 import LiveStream from "@/components/live-stream";
 import Trends from "@/components/trends";
+import Favorites from "@/components/favorites";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,6 +13,7 @@ export default function Home() {
 			<Hero />
 			<LiveStream />
 			<Trends />
+			<Favorites />
 		</main>
 	);
 }

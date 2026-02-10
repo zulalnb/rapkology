@@ -29,6 +29,7 @@
 	--color-yellow: var(--yellow);
 	--color-black-950: var(--black-950);
 	--color-black-900: var(--black-900);
+	--color-black-800: var(--black-800);
 	--color-black-700: var(--black-700);
 	--color-accent-foreground: var(--accent-foreground);
 	--color-accent: var(--accent);
@@ -72,6 +73,7 @@
 	--yellow: oklch(0.90853 0.16806 106.004);
 	--black-950: oklch(0.26 0 0);
 	--black-900: oklch(0.3 0 0);
+	--black-800: oklch(0.34 0 0);
 	--black-700: oklch(0.36 0 0);
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
@@ -101,6 +103,9 @@
 	button:not(:disabled),
 	[role="button"]:not(:disabled) {
 		@apply cursor-pointer;
+	}
+	::selection {
+		@apply bg-yellow text-black;
 	}
 }
 
