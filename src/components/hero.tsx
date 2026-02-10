@@ -110,7 +110,6 @@ export default function Hero() {
 										alt={item.image.alt}
 										fill
 										priority={index < 1}
-										loading={index < 1 ? "eager" : "lazy"}
 										className={item.image.className}
 									/>
 								</div>

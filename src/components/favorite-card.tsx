@@ -23,7 +23,6 @@ export default function FavoriteCard({ rank, artist, song, cover, link }: Props)
 							alt="50 Cent Curtis"
 							width={185}
 							height={185}
-							loading="lazy"
 							className="size-40 rounded-md md:size-46.25"
 						/>
 						<span className="after:bg-black-900 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 after:absolute after:inset-0 after:-z-10 after:scale-70 after:rounded-full after:content-['']">

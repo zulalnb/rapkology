@@ -15,7 +15,6 @@ export default function LiveStream() {
 						alt="Twitch"
 						width={158}
 						height={98}
-						loading="lazy"
 						className="h-auto w-27 md:w-39.5"
 					/>
 					<Separator orientation="vertical" className="bg-black-700" />
@@ -46,7 +45,6 @@ export default function LiveStream() {
 					alt="Hip-hop artist"
 					width={420}
 					height={438}
-					loading="lazy"
 					className="h-auto w-70 md:w-72 lg:w-[480px]"
 				/>
 				<Image
@@ -54,7 +52,6 @@ export default function LiveStream() {
 					alt="Melis Aydın"
 					width={303}
 					height={530}
-					loading="lazy"
 					className="h-auto w-55 md:w-44 lg:w-[303px]"
 				/>
 			</div>
