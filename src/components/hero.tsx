@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import HeroItem from "./hero-item";
 
 const data = [
 	{
@@ -35,6 +36,7 @@ const data = [
 ];
 
 export default function Hero() {
+	const slides = useMemo(() => data, []);
 	const [active, setActive] = useState(0);
 
 	return (
@@ -43,13 +45,13 @@ export default function Hero() {
 			<div
 				className={cn(
 					"relative top-0 z-20 mx-auto mt-27 w-70 max-w-90 px-2 text-center md:absolute md:top-40 md:right-16 md:mt-auto md:h-auto md:w-115 md:max-w-none md:items-start md:px-0 md:text-left lg:right-35",
-					data[active]?.color,
+					slides[active]?.color,
 				)}
 			>
 				<h2 className="font-saira-cond mb-6 text-3xl font-bold tracking-[-2%] uppercase lg:text-6xl">
-					{data[active]?.title}
+					{slides[active]?.title}
 				</h2>
-				<p className="text-sm md:text-base">{data[active]?.description}</p>
+				<p className="text-sm md:text-base">{slides[active]?.description}</p>
 				<div className="mt-4 drop-shadow-[5px_5px_0_#000000]">
 					<Button
 						size="lg"
@@ -60,51 +62,70 @@ export default function Hero() {
 				</div>
 				<div className="hero-pagination pointer-events-auto mt-10 flex items-center justify-center gap-2 md:justify-start" />
 			</div>
-			<Swiper
-				modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
-				navigation={{
-					nextEl: ".hero-next",
-					prevEl: ".hero-prev",
-				}}
-				effect="fade"
-				fadeEffect={{ crossFade: true }}
-				slidesPerView={1}
-				loop
-				speed={700}
-				autoplay={{ delay: 4500, disableOnInteraction: false }}
-				pagination={{
-					el: ".hero-pagination",
-					clickable: true,
-					renderBullet: (_, className) => {
-						return `<span class="${className} hero-bullet"></span>`;
-					},
-				}}
-				onSlideChange={(sw) => setActive(sw.realIndex)}
-				className="hero-swiper h-full"
-			>
-				<Button
-					size="icon-lg"
-					variant="ghost"
-					className="hero-prev absolute top-1/2 left-10 z-30 hidden -translate-y-1/2 hover:bg-transparent md:flex"
+			<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-svh">
+				<Swiper
+					modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
+					navigation={{
+						nextEl: ".hero-next",
+						prevEl: ".hero-prev",
+					}}
+					effect="fade"
+					fadeEffect={{ crossFade: true }}
+					slidesPerView={1}
+					loop
+					speed={700}
+					autoplay={{ delay: 4500, disableOnInteraction: false }}
+					pagination={{
+						el: ".hero-pagination",
+						clickable: true,
+						renderBullet: (_, className) => {
+							return `<span class="${className} hero-bullet"></span>`;
+						},
+					}}
+					onSlideChange={(sw) => setActive(sw.realIndex)}
+					className="hero-swiper h-full"
 				>
-					<ArrowLeftIcon className="size-8 text-white" />
-				</Button>
+					<Button
+						size="icon-lg"
+						variant="ghost"
+						className="hero-prev absolute top-1/2 left-10 z-30 hidden -translate-y-1/2 hover:bg-transparent md:flex"
+					>
+						<ArrowLeftIcon className="size-8 text-white" />
+					</Button>
 
-				<Button
-					size="icon-lg"
-					variant="ghost"
-					className="hero-next absolute top-1/2 right-10 z-30 hidden -translate-y-1/2 hover:bg-transparent md:flex"
-				>
-					<ArrowRightIcon className="size-8 text-white" />
-				</Button>
-				<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-svh">
+					<Button
+						size="icon-lg"
+						variant="ghost"
+						className="hero-next absolute top-1/2 right-10 z-30 hidden -translate-y-1/2 hover:bg-transparent md:flex"
+					>
+						<ArrowRightIcon className="size-8 text-white" />
+					</Button>
+
 					{data.map((item, index) => (
 						<SwiperSlide key={index}>
-							<HeroItem priority={index < 1} item={item} />
+							<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.png')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
+								<div className={cn("absolute inset-0", item.image.loc)}>
+									<Image
+										src={item.image.path}
+										alt={item.image.alt}
+										fill
+										priority={index < 1}
+										className={item.image.className}
+									/>
+								</div>
+								<div className="absolute -bottom-12 left-0 z-10 w-full leading-none md:-bottom-66 lg:-bottom-48">
+									<img
+										src="/torn-paper-divider.svg"
+										alt=""
+										aria-hidden="true"
+										className="relative left-1/2 block h-auto w-[140%] max-w-none -translate-x-1/2 md:w-[160%] lg:w-450"
+									/>
+								</div>
+							</div>
 						</SwiperSlide>
 					))}
-				</div>
-			</Swiper>
+				</Swiper>
+			</div>
 		</section>
 	);
 }
