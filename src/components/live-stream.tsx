@@ -7,9 +7,9 @@ import { ChevronDown, HeartIcon, StarIcon } from "lucide-react";
 
 export default function LiveStream() {
 	return (
-		<section className="relative mt-0 w-full overflow-hidden bg-[url('/live-concert-crowd.png')] bg-size-[900px_auto] bg-center bg-no-repeat md:mt-15 md:bg-size-[1300px_auto] md:bg-bottom">
-			<div className="flex -rotate-4 flex-col items-center gap-6 md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2">
-				<div className="flex h-38 items-center justify-center gap-2.5">
+		<section className="relative mt-0 w-full overflow-hidden md:mt-15">
+			<div className="mb-8 flex -rotate-4 flex-col items-center gap-6 sm:mb-0 md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2">
+				<div className="flex h-29 items-center justify-center gap-2.5 md:h-38">
 					<Image
 						src="/twitch-logo-wordmark.png"
 						alt="Twitch"
@@ -39,29 +39,32 @@ export default function LiveStream() {
 					</Button>
 				</div>
 			</div>
-			<div className="container mx-auto flex h-140 items-center justify-between">
-				<Image
-					src="/hip-hop-artist.png"
-					alt="Hip-hop artist"
-					width={420}
-					height={438}
-					className="h-auto w-70 md:w-72 lg:w-[480px]"
-				/>
-				<Image
-					src="/melis-aydin.png"
-					alt="Melis Aydın"
-					width={303}
-					height={530}
-					className="h-auto w-55 md:w-44 lg:w-[303px]"
-				/>
-			</div>
-			<div className="absolute -bottom-12 left-0 z-10 w-full leading-none md:-bottom-60 lg:-bottom-66">
-				<img
-					src="/torn-paper-divider.svg"
-					alt=""
-					aria-hidden="true"
-					className="relative left-1/2 block h-auto w-[140%] max-w-none -translate-x-1/2 -scale-x-100 md:w-[160%] lg:w-450"
-				/>
+
+			<div className="bg-[url('/live-concert-crowd.png')] bg-size-[900px_auto] bg-bottom bg-no-repeat sm:bg-size-[1300px_auto] md:bg-bottom">
+				<div className="container mx-auto flex h-70 items-center justify-center sm:h-140 sm:justify-between">
+					<Image
+						src="/hip-hop-artist.png"
+						alt="Hip-hop artist"
+						width={420}
+						height={438}
+						className="h-auto w-70 shrink-0 md:w-72 lg:w-[480px]"
+					/>
+					<Image
+						src="/melis-aydin.png"
+						alt="Melis Aydın"
+						width={303}
+						height={530}
+						className="h-auto w-55 shrink-0 md:w-44 lg:w-[303px]"
+					/>
+				</div>
+				<div className="absolute -bottom-10 left-0 z-10 w-full leading-none md:-bottom-60 lg:-bottom-66">
+					<img
+						src="/torn-paper-divider.svg"
+						alt=""
+						aria-hidden="true"
+						className="relative left-1/2 block h-auto w-[140%] max-w-none -translate-x-1/2 -scale-x-100 md:w-[160%] lg:w-450"
+					/>
+				</div>
 			</div>
 		</section>
 	);
