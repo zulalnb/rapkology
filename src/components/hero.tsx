@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { A11y, Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
@@ -37,10 +36,30 @@ const data = [
 
 export default function Hero() {
 	const [active, setActive] = useState(0);
+
 	return (
 		<section className="relative h-svh w-full">
 			<h1 className="sr-only">Türkçe rap ve dünya müzik haberlerini takip et</h1>
-
+			<div
+				className={cn(
+					"relative top-0 z-20 mx-auto mt-27 w-70 max-w-90 px-2 text-center md:absolute md:top-40 md:right-16 md:mt-auto md:h-auto md:w-115 md:max-w-none md:items-start md:px-0 md:text-left lg:right-35",
+					data[active]?.color,
+				)}
+			>
+				<h2 className="font-saira-cond mb-6 text-3xl font-bold tracking-[-2%] uppercase lg:text-6xl">
+					{data[active]?.title}
+				</h2>
+				<p className="text-sm md:text-base">{data[active]?.description}</p>
+				<div className="mt-4 drop-shadow-[5px_5px_0_#000000]">
+					<Button
+						size="lg"
+						className="bg-yellow rounded-none font-bold [clip-path:polygon(95%_100%,100%_0,0_2%,5%_90%)]"
+					>
+						Devamını Oku
+					</Button>
+				</div>
+				<div className="hero-pagination pointer-events-auto mt-10 flex items-center justify-center gap-2 md:justify-start" />
+			</div>
 			<Swiper
 				modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
 				navigation={{
@@ -78,31 +97,13 @@ export default function Hero() {
 				>
 					<ArrowRightIcon className="size-8 text-white" />
 				</Button>
-				<div
-					className={cn(
-						"relative top-0 z-30 mx-auto mt-27 w-70 max-w-90 px-2 text-center md:absolute md:top-40 md:right-16 md:mt-auto md:h-auto md:w-115 md:max-w-none md:items-start md:px-0 md:text-left lg:right-35",
-						data[active].color,
-					)}
-				>
-					<h2 className="font-saira-cond mb-6 text-3xl font-bold tracking-[-2%] uppercase lg:text-6xl">
-						{data[active].title}
-					</h2>
-					<p className="text-sm md:text-base">{data[active].description}</p>
-					<div className="mt-4 drop-shadow-[5px_5px_0_#000000]">
-						<Button
-							size="lg"
-							className="bg-yellow rounded-none font-bold [clip-path:polygon(95%_100%,100%_0,0_2%,5%_90%)]"
-						>
-							Devamını Oku
-						</Button>
-					</div>
-					<div className="hero-pagination pointer-events-auto mt-10 flex items-center justify-center gap-2 md:justify-start" />
+				<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-svh">
+					{data.map((item, index) => (
+						<SwiperSlide key={index}>
+							<HeroItem priority={index < 1} item={item} />
+						</SwiperSlide>
+					))}
 				</div>
-				{data.map((item, index) => (
-					<SwiperSlide key={index}>
-						<HeroItem item={item} priority={index < 1} />
-					</SwiperSlide>
-				))}
 			</Swiper>
 		</section>
 	);
