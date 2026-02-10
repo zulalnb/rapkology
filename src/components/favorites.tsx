@@ -9,9 +9,30 @@ import FavoriteCard from "./favorite-card";
 import "swiper/css/scrollbar";
 
 const favorites = [
-	{ id: 1, artist: "50 Cent", song: "Curtis", cover: "/50-cent-curtis.png", rank: 2 },
-	{ id: 2, artist: "Snoop Dogg", song: "Algorithm", cover: "/snoop-dogg-algorithm.png", rank: 3 },
-	{ id: 3, artist: "Ceza", song: "Rüzgar", cover: "/ceza-ruzgar.png", rank: 1 },
+	{
+		id: 1,
+		artist: "50 Cent",
+		song: "Curtis",
+		cover: "/50-cent-curtis.png",
+		rank: 2,
+		link: "https://open.spotify.com/album/4PNQbmRNOoWXRnZgwwpT2y?si=T1LoLS3ZRQOXvqz5ev2P9A",
+	},
+	{
+		id: 2,
+		artist: "Snoop Dogg",
+		song: "Algorithm",
+		cover: "/snoop-dogg-algorithm.png",
+		rank: 3,
+		link: "https://open.spotify.com/album/61qj9MgqlVi0xzi55mHZiX?si=JSbr2puYRtCdy6Ca7XoWIQ",
+	},
+	{
+		id: 3,
+		artist: "Ceza",
+		song: "Rüzgar",
+		cover: "/ceza-ruzgar.png",
+		rank: 1,
+		link: "https://open.spotify.com/album/5jLRDRINUJimEggaRucGtt?si=BnOVR6KyQTa9DF3C-fvINg",
+	},
 ];
 
 export default function Favorites() {
@@ -47,16 +68,24 @@ export default function Favorites() {
 						0: {
 							spaceBetween: 40,
 							slidesOffsetBefore: 40,
+							slidesOffsetAfter: 40,
 						},
 						768: {
 							spaceBetween: 32,
-							loop: false,
+							slidesOffsetBefore: 0,
+							slidesOffsetAfter: 32,
 						},
 					}}
 				>
 					{favorites.map((fav, index) => (
 						<SwiperSlide key={`${fav.id}-${index}`} className="w-fit!">
-							<FavoriteCard artist={fav.artist} song={fav.song} cover={fav.cover} rank={fav.rank} />
+							<FavoriteCard
+								artist={fav.artist}
+								song={fav.song}
+								cover={fav.cover}
+								rank={fav.rank}
+								link={fav.link}
+							/>
 						</SwiperSlide>
 					))}
 				</Swiper>

@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils";
 const data = [
 	{
 		image: {
-			path: "/hip-hop-singer-performing-during-concert.png",
+			path: "/hip-hop-singer-performing-during-concert.avif",
 			alt: "Hip-hop singer performing during concert",
 			loc: "md:-translate-x-50 lg:-translate-x-73 md:translate-y-20 lg:translate-y-12",
-			className: "object-cover",
+			className: "object-cover w-[966px] md:w-[1474px] h-auto",
 		},
 		title: "Türkçe Rap ve Dünya Müzik Haberlerini Takip Et",
 		description:
@@ -23,10 +23,10 @@ const data = [
 	},
 	{
 		image: {
-			path: "/hip-hop-artist-portrait-with-sunglasses.png",
+			path: "/hip-hop-artist-portrait-with-sunglasses.avif",
 			alt: "Hip-hop Artist Portrait With Sunglasses",
 			loc: "lg:-translate-x-1 lg:-translate-y-10",
-			className: "object-cover object-[25%_50%] lg:object-contain",
+			className: "object-cover object-[25%_50%] lg:object-contain w-[966px] md:w-[1440px] h-auto",
 		},
 		title: "Dünya Rap Trendlerini Konuşuyoruz",
 		description:
@@ -109,7 +109,8 @@ export default function Hero() {
 										src={item.image.path}
 										alt={item.image.alt}
 										fill
-										priority
+										priority={index < 1}
+										loading={index < 1 ? "eager" : "lazy"}
 										className={item.image.className}
 									/>
 								</div>
