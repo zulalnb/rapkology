@@ -40,7 +40,7 @@ export default function LiveStream() {
 				</div>
 			</div>
 
-			<div className="bg-[url('/live-concert-crowd.png')] bg-size-[900px_auto] bg-bottom bg-no-repeat sm:bg-size-[1300px_auto] md:bg-bottom">
+			<div className="bg-[url('/live-concert-crowd.avif')] bg-size-[900px_auto] bg-bottom bg-no-repeat sm:bg-size-[1300px_auto] md:bg-bottom">
 				<div className="container mx-auto flex h-70 items-center justify-center sm:h-140 sm:justify-between">
 					<Image
 						src="/hip-hop-artist.png"

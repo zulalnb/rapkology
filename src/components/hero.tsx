@@ -14,7 +14,9 @@ const data = [
 			path: "/hip-hop-singer-performing-during-concert.avif",
 			alt: "Hip-hop singer performing during concert",
 			loc: "md:-translate-x-50 lg:-translate-x-73 md:translate-y-20 lg:translate-y-12",
-			className: "object-cover w-[966px] md:w-[1474px] h-auto",
+			className: "object-cover",
+			parent: "w-[966px] md:w-[1474px]",
+			sizes: "100vw",
 		},
 		title: "Türkçe Rap ve Dünya Müzik Haberlerini Takip Et",
 		description:
@@ -26,7 +28,9 @@ const data = [
 			path: "/hip-hop-artist-portrait-with-sunglasses.avif",
 			alt: "Hip-hop Artist Portrait With Sunglasses",
 			loc: "lg:-translate-x-1 lg:-translate-y-10",
-			className: "object-cover object-[25%_50%] lg:object-contain w-[966px] md:w-[1440px] h-auto",
+			className: "object-cover object-[25%_50%] lg:object-contain",
+			parent: " w-[966px] md:w-[1440px]",
+			sizes: "100vw",
 		},
 		title: "Dünya Rap Trendlerini Konuşuyoruz",
 		description:
@@ -103,7 +107,7 @@ export default function Hero() {
 
 					{data.map((item, index) => (
 						<SwiperSlide key={index}>
-							<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.png')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
+							<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.avif')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
 								<div className={cn("absolute inset-0", item.image.loc)}>
 									<Image
 										src={item.image.path}

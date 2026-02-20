@@ -8,20 +8,23 @@ type HeroItem = {
 		alt: string;
 		loc: string;
 		className: string;
+		parent: string;
 	};
 	title: string;
 	description: string;
 	color: string;
+	sizes: string;
 };
 
 export default function HeroItem({ item, priority }: { item: HeroItem; priority: boolean }) {
 	return (
-		<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.png')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
-			<div className={cn("absolute inset-0", item.image.loc)}>
+		<div className="relative h-[70svh] after:pointer-events-none after:absolute after:inset-0 after:bg-[url('/metal-texture-with-dust-scratches.avif')] after:bg-top after:bg-no-repeat after:opacity-10 after:mix-blend-overlay after:content-[''] lg:aspect-video lg:h-auto">
+			<div className={cn("absolute inset-0", item.image.loc, item.image.parent)}>
 				<Image
 					src={item.image.path}
 					alt={item.image.alt}
 					fill
+					sizes={item.sizes}
 					priority={priority}
 					className={item.image.className}
 				/>

@@ -15,7 +15,7 @@ export default function TrendCard({ number, avatar, author, title }: Props) {
 			<div className="space-y-5">
 				<div className="flex items-center gap-5">
 					<Avatar className="rounded-[0.625rem]">
-						<AvatarImage src={avatar} />
+						<AvatarImage src={avatar} alt={author} />
 						<AvatarFallback>
 							{author
 								.split(" ")

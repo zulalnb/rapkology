@@ -98,7 +98,7 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background font-saira text-white;
+		@apply font-saira bg-black text-white;
 	}
 	button:not(:disabled),
 	[role="button"]:not(:disabled) {
