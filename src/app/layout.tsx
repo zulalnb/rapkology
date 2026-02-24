@@ -6,12 +6,14 @@ import Header from "@/components/header";
 const saira = Saira({
 	variable: "--font-saira",
 	subsets: ["latin"],
+	display: "swap",
 });
 
 const sairaCondensed = Saira_Condensed({
 	weight: ["400", "700"],
 	subsets: ["latin"],
 	variable: "--font-saira-condensed",
+	display: "swap",
 });
 
 export const metadata: Metadata = {

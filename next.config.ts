@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 import type { RuleSetRule } from "webpack";
 
 const nextConfig: NextConfig = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "i.scdn.co",
+				pathname: "/image/**",
+			},
+		],
+	},
 	webpack(config) {
 		const fileLoaderRule = config.module.rules.find(
 			(rule: RuleSetRule) => rule.test instanceof RegExp && rule.test.test(".svg"),

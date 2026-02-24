@@ -4,9 +4,9 @@ import Vector2 from "@/assets/vector-2.svg";
 import Play from "@/assets/play.svg";
 import { Badge } from "./ui/badge";
 
-type Props = { rank: number; artist: string; song: string; cover: string; link: string };
+type Props = { rank: number; artist: string; album: string; cover: string; link: string };
 
-export default function FavoriteCard({ rank, artist, song, cover, link }: Props) {
+export default function FavoriteCard({ rank, artist, album, cover, link }: Props) {
 	return (
 		<div className="bg-black-900 relative h-95 w-68 cursor-pointer overflow-hidden md:h-66">
 			<div className="pointer-events-none absolute inset-0 z-10">
@@ -20,7 +20,7 @@ export default function FavoriteCard({ rank, artist, song, cover, link }: Props)
 					<a href={link} target="_blank" rel="noreferrer noopener">
 						<Image
 							src={cover}
-							alt="50 Cent Curtis"
+							alt={`${artist} - ${album}`}
 							width={185}
 							height={185}
 							className="size-40 rounded-md md:size-46.25"
@@ -30,14 +30,14 @@ export default function FavoriteCard({ rank, artist, song, cover, link }: Props)
 						</span>
 					</a>
 				</div>
-				<div className="mt-4 flex flex-col items-center md:mt-16 md:w-46.25 md:self-end md:pr-7">
+				<div className="mt-4 flex flex-col items-center transition-opacity group-hover:opacity-0 md:my-auto md:w-46.25 md:self-end">
 					<Badge variant="secondary" className="bg-black-800 px-2.5 py-1.25 text-white">
 						Top 10 <span className="font-bold">({rank}. Sıra)</span>
 					</Badge>
 					<h3 className="mt-2.5 text-center text-xl wrap-break-word uppercase">
 						{artist}
 						<br />
-						<span className="font-bold">{song}</span>
+						<span className="font-bold">{album}</span>
 					</h3>
 				</div>
 			</div>
