@@ -29,7 +29,7 @@ export const favorites = [
 		album: "The Eminem Show",
 		cover: "https://i.scdn.co/image/ab67616d0000b2737614dc8b0eab9abd91cc0d71",
 		rank: 4,
-		link: "https://open.spotify.com/album/2cWBwpqMsDJC1ZUwz813lo",
+		link: "https://open.spotify.com/album/2cWBwpqMsDJC1ZUwz813lo?si=qzWCrR-kSFSLtipWivMHiw",
 	},
 	{
 		id: 5,
@@ -37,7 +37,7 @@ export const favorites = [
 		album: "2001",
 		cover: "https://i.scdn.co/image/ab67616d00001e029b19c107109de740bad72df5",
 		rank: 5,
-		link: "https://open.spotify.com/album/7q2B4M5EiBkqrlsNW8lB7N",
+		link: "https://open.spotify.com/album/7q2B4M5EiBkqrlsNW8lB7N?si=HEG7jTm9Q7KyjN_Sh64DIA",
 	},
 	{
 		id: 6,
@@ -45,7 +45,7 @@ export const favorites = [
 		album: "DAMN.",
 		cover: "https://i.scdn.co/image/ab67616d0000b2738b52c6b9bc4e43d873869699",
 		rank: 6,
-		link: "https://open.spotify.com/album/4eLPsYPBmXABThSJ821sqY",
+		link: "https://open.spotify.com/album/4eLPsYPBmXABThSJ821sqY?si=gswkFpILRaKBudfyhsg4uw",
 	},
 	{
 		id: 7,
@@ -53,7 +53,7 @@ export const favorites = [
 		album: "Bir Pesimistin Gözyaşları",
 		cover: "https://i.scdn.co/image/ab67616d0000b2735cf8c954e1bb69c28623db75",
 		rank: 7,
-		link: "https://open.spotify.com/album/2N6FzNw2K6JqqPiRWaYwIV",
+		link: "https://open.spotify.com/album/0pTcS1HbU01CSjEkjzCMeS?si=1eCj9WbFSNWcPj_7oDQycw",
 	},
 	{
 		id: 8,
@@ -61,7 +61,7 @@ export const favorites = [
 		album: "Mekanın Sahibi",
 		cover: "https://i.scdn.co/image/ab67616d0000b2731ba74b346d99d0c8d160beaf",
 		rank: 8,
-		link: "https://open.spotify.com/album/2c1zK5EKeosFVJeFt3PcTQ",
+		link: "https://open.spotify.com/album/5iVFcHmSIcGzmuoujBXdUY?si=LZ1aoJWlSj2oHRgZBBvYIw",
 	},
 	{
 		id: 9,
@@ -69,7 +69,7 @@ export const favorites = [
 		album: "Illmatic",
 		cover: "https://i.scdn.co/image/ab67616d00001e0271d840defb002ed3b180f7cd",
 		rank: 9,
-		link: "https://open.spotify.com/album/3kEtdS2pH6hKcql9R7m2gk",
+		link: "https://open.spotify.com/album/3kEtdS2pH6hKcMU9Wioob1?si=HQtHvEaUShi-SavmqWjSqQ",
 	},
 	{
 		id: 10,
@@ -77,6 +77,6 @@ export const favorites = [
 		album: "Astroworld",
 		cover: "https://i.scdn.co/image/ab67616d00001e02daec894c14c0ca42d76eeb32",
 		rank: 10,
-		link: "https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I",
+		link: "https://open.spotify.com/album/41GuZcammIkupMPKH2OJ6I?si=eqNpvin8Sky_c_Ux5mqvGw",
 	},
 ];
