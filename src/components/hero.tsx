@@ -13,7 +13,7 @@ export default function Hero() {
 	const [active, setActive] = useState(0);
 
 	return (
-		<section className="relative w-full">
+		<section className="relative h-svh w-full md:h-auto">
 			<h1 className="sr-only">Türkçe rap ve dünya müzik haberlerini takip et</h1>
 			<div
 				className={cn(
@@ -35,7 +35,7 @@ export default function Hero() {
 				</div>
 				<div className="hero-pagination pointer-events-auto mt-10 flex items-center justify-center gap-2 md:justify-start" />
 			</div>
-			<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-svh">
+			<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-full">
 				<Swiper
 					modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
 					navigation={{
@@ -75,7 +75,7 @@ export default function Hero() {
 					</Button>
 
 					{hero.map((item, index) => (
-						<SwiperSlide key={index}>
+						<SwiperSlide key={index} className="md:h-full!">
 							<HeroItem item={item} priority={index < 1} />
 						</SwiperSlide>
 					))}

@@ -12,13 +12,6 @@ export const metadata: Metadata = {
 	alternates: {
 		canonical: "/",
 	},
-	/* 	other: {
-		rel: "preload",
-		as: "image",
-		href: "/hip-hop-singer-performing-during-concert.avif",
-		fetchpriority: "high",
-		type: "image/avif",
-	}, */
 };
 
 export default function Home() {

@@ -7,7 +7,7 @@ import { ChevronDown, HeartIcon, StarIcon } from "lucide-react";
 
 export default function LiveStream() {
 	return (
-		<section className="relative mt-0 w-full overflow-hidden md:mt-15">
+		<section className="relative mt-0 w-full overflow-hidden md:mt-1">
 			<div className="mb-8 flex -rotate-4 flex-col items-center gap-6 sm:mb-0 md:absolute md:top-4 md:left-1/2 md:-translate-x-1/2">
 				<div className="flex h-29 items-center justify-center gap-2.5 md:h-38">
 					<Image
