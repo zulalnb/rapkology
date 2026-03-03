@@ -7,6 +7,7 @@ import Favorites from "@/components/favorites";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import "swiper/css/scrollbar";
 
 export const metadata: Metadata = {
 	alternates: {

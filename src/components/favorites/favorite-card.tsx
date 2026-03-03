@@ -2,11 +2,11 @@
 import Image from "next/image";
 import Vector2 from "@/assets/vector-2.svg";
 import Play from "@/assets/play.svg";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 type Props = { rank: number; artist: string; album: string; cover: string; link: string };
 
-export default function FavoriteCard({ rank, artist, album, cover, link }: Props) {
+export function FavoriteCard({ rank, artist, album, cover, link }: Props) {
 	return (
 		<a
 			href={link}
