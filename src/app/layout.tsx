@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Saira, Saira_Condensed } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Providers from "./providers";
 
 const saira = Saira({
 	variable: "--font-saira",
@@ -35,8 +36,10 @@ export default function RootLayout({
 	return (
 		<html lang="tr">
 			<body className={`${saira.variable} ${sairaCondensed.variable} antialiased`}>
-				<Header />
-				{children}
+				<Providers>
+					<Header />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);

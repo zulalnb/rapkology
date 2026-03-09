@@ -1,7 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import Vector2 from "@/assets/vector-2.svg";
-import Play from "@/assets/play.svg";
+import { Play, Vector2 } from "@/assets";
 import { Badge } from "../ui/badge";
 
 type Props = { rank: number; artist: string; album: string; cover: string; link: string };
@@ -15,6 +13,7 @@ export function FavoriteCard({ rank, artist, album, cover, link }: Props) {
 			className="bg-black-900 relative block h-95 w-68 cursor-pointer overflow-hidden md:h-66"
 		>
 			<div className="pointer-events-none absolute inset-0 z-10">
+				{/* eslint-disable @next/next/no-img-element */}
 				<img src="/vector-1.svg" alt="" aria-hidden className="absolute bottom-1.75 z-30 h-auto w-full" />
 				<Vector2 className="absolute bottom-1 z-20 h-auto w-full" />
 				<div className="absolute bottom-0 z-10 h-70 w-full bg-black [clip-path:polygon(0_93%,100%_88%,100%_100%,0%_100%)]" />

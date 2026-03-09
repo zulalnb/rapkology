@@ -6,6 +6,7 @@ import { A11y, Autoplay, Scrollbar } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper/types";
 import { FavoriteCard } from "./favorite-card";
 import { Favorite } from "@/types/favorite";
+import { Skeleton } from "../ui/skeleton";
 
 export function FavoritesSwiper({ favorites }: { favorites: Favorite[] }) {
 	const swiperRef = useRef<SwiperType | null>(null);
@@ -64,5 +65,15 @@ export function FavoritesSwiper({ favorites }: { favorites: Favorite[] }) {
 				</SwiperSlide>
 			))}
 		</Swiper>
+	);
+}
+
+export function FavoritesSkeleton() {
+	return (
+		<div className="flex gap-10 overflow-hidden pl-8 md:gap-8 md:pl-0">
+			{Array.from({ length: 3 }).map((_, i) => (
+				<Skeleton key={i} className="mb-13 h-95 w-68 shrink-0 md:h-66" />
+			))}
+		</div>
 	);
 }

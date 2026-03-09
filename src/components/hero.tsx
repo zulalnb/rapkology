@@ -47,7 +47,7 @@ export default function Hero() {
 					slidesPerView={1}
 					loop
 					speed={1000}
-					autoplay={{ delay: 9000, disableOnInteraction: false }}
+					autoplay={{ delay: 6000, disableOnInteraction: false }}
 					pagination={{
 						el: ".hero-pagination",
 						clickable: true,
