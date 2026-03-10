@@ -1,7 +1,7 @@
 import { BlogPost } from "@/types/post";
 import { cn } from "@/lib/utils";
 import type { ExploreView } from "./explore-view-provider";
-import { PostCard } from "./post-card";
+import { ExplorePostCard } from "../blog/cards/explore-post-card";
 
 type PostListProps = {
 	posts: BlogPost[];
@@ -22,7 +22,7 @@ export function PostList({ posts, sizes, view = "list" }: PostListProps) {
 					key={post._id}
 					className={view === "list" ? "md:col-span-6" : "col-span-6 md:col-span-4 lg:col-span-3"}
 				>
-					<PostCard key={post._id} post={post} sizes={sizes} view={view} />
+					<ExplorePostCard key={post._id} post={post} sizes={sizes} view={view} />
 				</div>
 			))}
 		</div>

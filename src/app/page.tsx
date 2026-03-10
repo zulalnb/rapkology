@@ -9,6 +9,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import "swiper/css/scrollbar";
+import "swiper/css/a11y";
+import "swiper/css/navigation";
 
 export const metadata: Metadata = {
 	alternates: {

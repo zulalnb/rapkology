@@ -23,6 +23,13 @@ export interface BlogPost {
 	updatedAt: string;
 }
 
+export interface PostFilters {
+	tag?: {
+		slug: string;
+		name: string;
+	};
+}
+
 export interface PaginationInfo {
 	page: number;
 	limit: number;
@@ -34,5 +41,6 @@ export interface PaginationInfo {
 
 export interface ApiResponse {
 	data: BlogPost[];
+	filters?: PostFilters;
 	pagination: PaginationInfo;
 }

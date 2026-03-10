@@ -14,3 +14,11 @@ export function truncateText(str: string, limit = 88, suffix = "") {
 
 	return truncated + suffix;
 }
+
+export function slugify(value: string) {
+	return value
+		.toLowerCase()
+		.trim()
+		.replace(/\s+/g, "-")
+		.replace(/[^\w-]+/g, "");
+}
