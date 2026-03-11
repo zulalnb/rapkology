@@ -86,8 +86,8 @@ export default async function BlogPost({ params }: Props) {
 							posts={trendingPosts}
 							className="md:sticky md:top-30 md:col-span-5 md:self-start"
 						/>
-						<MorePostsSection className="mt-25 md:mt-15" posts={morePosts} />
 					</div>
+					<MorePostsSection className="mt-25 md:mt-15" posts={morePosts} />
 				</main>
 			</div>
 		</div>

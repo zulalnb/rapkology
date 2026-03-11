@@ -20,7 +20,7 @@ const sairaCondensed = Saira_Condensed({
 export const metadata: Metadata = {
 	title: {
 		default: "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri",
-		template: "Rapkology - %s",
+		template: "%s - Rapkology",
 	},
 	description:
 		"Rapkology, rap müziğin derinliklerine dalın. Rap sanatçıları, sözler ve şarkılar hakkında kapsamlı bilgiler, analizler ve daha fazlası. Rap dünyasının incelikleri burada!",
