@@ -3,6 +3,7 @@ import type { BlogPost } from "@/types/post";
 import { cn, truncateText } from "@/lib/utils";
 import { ExploreView } from "@/components/explore/explore-view-provider";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ArrowRightIcon } from "lucide-react";
 
 type PostCardProps = {
 	post: BlogPost;
@@ -22,7 +23,7 @@ export function ExplorePostCard({ post, sizes, view = "list" }: PostCardProps) {
 	const author = post.attributes.authors[0];
 
 	return (
-		<article className="h-full">
+		<article className="group h-full">
 			<div className={cn("flex h-full flex-col gap-5 p-0", view === "list" && "md:flex-row")}>
 				<div className={cn("flex flex-col", view === "list" && "md:basis-2xs")}>
 					<div className="relative aspect-video w-full overflow-hidden">
@@ -56,12 +57,9 @@ export function ExplorePostCard({ post, sizes, view = "list" }: PostCardProps) {
 						{truncateText(post.attributes.title, 88, "...")}
 					</h3>
 
-					<p
-						className={cn(
-							"border-t-black-700 border-t pt-5 text-sm text-white transition-opacity hover:opacity-85 md:pt-7.5 md:text-base",
-						)}
-					>
+					<p className={cn("border-t-black-700 border-t pt-5 text-sm text-white md:pt-7.5 md:text-base")}>
 						Daha Fazla Oku
+						<ArrowRightIcon className="text-yellow ml-1 inline-flex size-3.5 -translate-x-5 opacity-0 transition-[opacity_transform] ease-in-out group-hover:translate-x-0 group-hover:opacity-100" />
 					</p>
 				</div>
 			</div>

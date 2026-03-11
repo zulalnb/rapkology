@@ -18,7 +18,10 @@ const sairaCondensed = Saira_Condensed({
 });
 
 export const metadata: Metadata = {
-	title: "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri",
+	title: {
+		default: "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri",
+		template: "Rapkology - %s",
+	},
 	description:
 		"Rapkology, rap müziğin derinliklerine dalın. Rap sanatçıları, sözler ve şarkılar hakkında kapsamlı bilgiler, analizler ve daha fazlası. Rap dünyasının incelikleri burada!",
 	openGraph: {

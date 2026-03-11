@@ -1,12 +1,11 @@
-import React from "react";
 import { ArrowRight } from "lucide-react";
-import { Separator } from "./ui/separator";
-import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 type Props = { number: number; avatar: string; author: string; title: string };
 
-export default function TrendCard({ number, avatar, author, title }: Props) {
+export function TrendCard({ number, avatar, author, title }: Props) {
 	return (
 		<div className="flex gap-10 md:gap-12 xl:gap-15">
 			<span className="font-saira-cond text-black-900 w-[3ch] shrink-0 text-6xl leading-none font-bold tabular-nums">
