@@ -7,7 +7,7 @@ import { ExplorePostCardSkeleton } from "../blog/cards/explore-post-card";
 
 export default async function Explore({ className }: { className?: string }) {
 	return (
-		<section className={className} aria-labelledby="explore-heading">
+		<section id="explore" className={className} aria-labelledby="explore-heading">
 			<div className="container mx-auto px-4 py-15 md:py-20">
 				<ExploreViewProvider>
 					<ExploreHeader />

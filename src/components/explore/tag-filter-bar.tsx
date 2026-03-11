@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Skeleton } from "../ui/skeleton";
 
@@ -28,7 +29,9 @@ export async function TagFilterBar() {
 					<li key={tag.slug}>
 						<Button
 							variant="outline"
-							className="focus:bg-yellow rounded-none border-white bg-transparent px-5 py-2.5 font-normal focus:border-black focus:font-bold focus:text-black"
+							className={cn(
+								"focus:bg-yellow rounded-none border-white bg-transparent px-5 py-2.5 font-normal focus:border-black focus:font-bold focus:text-black",
+							)}
 						>
 							{tag.name}
 						</Button>
