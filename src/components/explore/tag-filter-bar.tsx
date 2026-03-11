@@ -9,7 +9,7 @@ export type TagFilter = {
 
 export async function getTagFilters(): Promise<TagFilter[]> {
 	const res = await fetch("https://dummyjson.com/c/a244-0559-4878-8936", {
-		cache: "no-store",
+		next: { revalidate: 3600 },
 	});
 
 	if (!res.ok) {

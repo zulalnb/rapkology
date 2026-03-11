@@ -6,6 +6,7 @@ interface GetPostsOptions {
 	limit?: number;
 	page?: number;
 	cache?: RequestCache;
+	fetchOptions?: RequestInit;
 	filters?: {
 		tag?: string;
 		trends?: boolean;
@@ -13,9 +14,9 @@ interface GetPostsOptions {
 }
 
 interface GetBlogPostPageDataOptions {
-	cache?: RequestCache;
 	trendingLimit?: number;
 	moreLimit?: number;
+	fetchOptions?: RequestInit;
 }
 
 type BlogPostPageData = {
@@ -27,10 +28,10 @@ type BlogPostPageData = {
 export async function getPosts({
 	limit = 4,
 	page = 1,
-	cache = "force-cache",
+	fetchOptions,
 	filters,
 }: GetPostsOptions = {}): Promise<ApiResponse> {
-	const res = await fetch(POSTS_URL, { cache });
+	const res = await fetch(POSTS_URL, fetchOptions);
 
 	if (!res.ok) {
 		throw new Error("Postlar yüklenirken hata oluştu");
@@ -89,9 +90,9 @@ export async function getPosts({
 
 export async function getPostBySlug(
 	slug: string,
-	{ cache = "force-cache" }: { cache?: RequestCache } = {},
+	{ fetchOptions }: { fetchOptions?: RequestInit } = {},
 ): Promise<BlogPost | null> {
-	const res = await fetch(POSTS_URL, { cache });
+	const res = await fetch(POSTS_URL, fetchOptions);
 
 	if (!res.ok) {
 		throw new Error("Postlar yüklenirken hata oluştu");
@@ -104,9 +105,9 @@ export async function getPostBySlug(
 
 export async function getPostPageData(
 	slug: string,
-	{ cache = "force-cache", trendingLimit = 4, moreLimit = 3 }: GetBlogPostPageDataOptions = {},
+	{ fetchOptions, trendingLimit = 4, moreLimit = 3 }: GetBlogPostPageDataOptions = {},
 ): Promise<BlogPostPageData> {
-	const all = await getPosts({ limit: 10, cache });
+	const all = await getPosts({ limit: 10, fetchOptions });
 
 	const post = all.data.find((item) => item.attributes.slug === slug) ?? null;
 

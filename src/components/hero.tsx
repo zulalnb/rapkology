@@ -1,6 +1,7 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { A11y, Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { Button } from "./ui/button";
@@ -9,6 +10,7 @@ import HeroItem from "./hero-item";
 import { hero } from "@/data/hero";
 
 export default function Hero() {
+	const swiperRef = useRef<SwiperType | null>(null);
 	const slides = useMemo(() => hero, []);
 	const [active, setActive] = useState(0);
 
@@ -38,6 +40,12 @@ export default function Hero() {
 			<div className="absolute bottom-0 w-full overflow-hidden md:static md:h-full">
 				<Swiper
 					modules={[Autoplay, Pagination, Navigation, A11y, EffectFade]}
+					onSwiper={(swiper) => {
+						swiperRef.current = swiper;
+					}}
+					onAfterInit={(swiper) => {
+						swiper.autoplay.start();
+					}}
 					navigation={{
 						nextEl: ".hero-next",
 						prevEl: ".hero-prev",
@@ -46,8 +54,8 @@ export default function Hero() {
 					fadeEffect={{ crossFade: true }}
 					slidesPerView={1}
 					loop
-					speed={1000}
-					autoplay={{ delay: 6000, disableOnInteraction: false }}
+					autoplay={false}
+					speed={800}
 					pagination={{
 						el: ".hero-pagination",
 						clickable: true,

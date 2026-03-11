@@ -33,7 +33,7 @@ export default function HeroItem({ item, priority }: { item: HeroItem; priority:
 					fill
 					sizes={item.image.sizes}
 					loading={priority ? "eager" : "lazy"}
-					fetchPriority={priority ? "high" : "low"}
+					fetchPriority={priority ? "high" : "auto"}
 					priority={priority}
 					className={item.image.className}
 				/>

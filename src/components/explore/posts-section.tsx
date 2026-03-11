@@ -5,7 +5,7 @@ export async function PostsSection() {
 	const initialPage = await getPosts({
 		page: 1,
 		limit: 4,
-		cache: "no-store",
+		fetchOptions: { next: { revalidate: 3600 } },
 	});
 
 	return <PostsFeed initialPage={initialPage} limit={4} />;

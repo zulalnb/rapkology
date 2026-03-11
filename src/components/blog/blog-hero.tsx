@@ -18,7 +18,7 @@ export async function BlogHero() {
 	const posts = await getPosts({
 		page: 1,
 		limit: 9,
-		cache: "no-store",
+		fetchOptions: { next: { revalidate: 3600 } },
 	});
 
 	return (

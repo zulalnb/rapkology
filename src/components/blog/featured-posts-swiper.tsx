@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { type Swiper as SwiperType } from "swiper";
 import { A11y, Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
@@ -13,22 +13,23 @@ type Props = {
 };
 
 export function FeaturedPostsSwiper({ posts }: Props) {
-	const [swiper, setSwiper] = useState<SwiperType | null>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
+	const swiperRef = useRef<SwiperType | null>(null);
 
 	return (
 		<div className="@container relative w-full">
 			<Swiper
 				modules={[Pagination, A11y, Autoplay, EffectCoverflow]}
 				effect={"coverflow"}
-				onSwiper={setSwiper}
-				onSlideChange={(s: SwiperType) => setActiveIndex(s.realIndex)}
-				loop
-				autoplay={{
-					delay: 2500,
-					disableOnInteraction: false,
-					pauseOnMouseEnter: true,
+				onSwiper={(swiper) => {
+					swiperRef.current = swiper;
 				}}
+				onSlideChange={(s: SwiperType) => setActiveIndex(s.realIndex)}
+				onAfterInit={(swiper) => {
+					swiper.autoplay.start();
+				}}
+				loop
+				autoplay={false}
 				speed={1000}
 				slidesPerView={1}
 				className="w-full"
@@ -73,7 +74,7 @@ export function FeaturedPostsSwiper({ posts }: Props) {
 								key={index}
 								type="button"
 								aria-label={`Go to slide ${index + 1}`}
-								onClick={() => swiper?.slideToLoop(index)}
+								onClick={() => swiperRef.current?.slideToLoop(index)}
 								className={cn("rounded-full", isActive ? "size-4 bg-black" : "size-2 bg-[#8E870D]")}
 							/>
 						);

@@ -20,7 +20,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = (await params).slug;
-	const post = await getPostBySlug(slug, { cache: "no-store" });
+	const post = await getPostBySlug(slug, { fetchOptions: { next: { revalidate: 3600 } } });
 
 	if (!post) {
 		return { title: "404" };
@@ -48,9 +48,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPost({ params }: Props) {
 	const slug = (await params).slug;
 	const { post, trendingPosts, morePosts } = await getPostPageData(slug, {
-		cache: "no-store",
 		trendingLimit: 4,
 		moreLimit: 3,
+		fetchOptions: { next: { revalidate: 3600 } },
 	});
 
 	if (!post) {
