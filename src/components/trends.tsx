@@ -1,6 +1,7 @@
 import { TrendingUp } from "lucide-react";
 import { Button } from "./ui/button";
 import TrendCard from "./trend-card";
+import Link from "next/link";
 
 const trends = [
 	{
@@ -62,8 +63,9 @@ export default function Trends() {
 				<Button
 					size="lg"
 					className="rounded-none bg-white font-bold [clip-path:polygon(95%_100%,100%_0,0_2%,5%_90%)]"
+					asChild
 				>
-					Tümünü Gör
+					<Link href="/blog">Tümünü Gör</Link>
 				</Button>
 			</div>
 		</section>

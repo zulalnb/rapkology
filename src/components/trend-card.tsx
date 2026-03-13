@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";

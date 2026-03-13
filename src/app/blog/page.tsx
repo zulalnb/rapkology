@@ -10,10 +10,23 @@ import "swiper/css/autoplay";
 
 import Explore from "@/components/explore";
 import { BlogHero, BlogHeroSkeleton } from "@/components/blog/blog-hero";
+import { sharedOpenGraph } from "../shared-metadata";
+
+const metaTitle = "Türkçe Rap Haberleri, Yeni Şarkılar ve Hip-Hop Gündemi";
+const metaDescription =
+	"Türkçe rap dünyasındaki en son haberleri, yeni çıkan şarkıları ve hip-hop kültürüne dair analizleri Rapkology blogunda keşfedin.";
 
 export const metadata: Metadata = {
+	title: metaTitle,
+	description: metaDescription,
 	alternates: {
 		canonical: "/blog",
+	},
+	openGraph: {
+		...sharedOpenGraph,
+		title: metaTitle,
+		description: metaDescription,
+		url: "/blog",
 	},
 };
 

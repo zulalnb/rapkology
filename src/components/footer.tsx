@@ -86,7 +86,7 @@ export function Footer() {
 										pathname === item.href && "text-yellow",
 									)}
 								>
-									<Link href={item.href}>{item.title}</Link>
+									<Link href="/blog">{item.title}</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 						))}

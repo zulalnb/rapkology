@@ -2,6 +2,7 @@ import { TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import TrendCard from "@/components/trend-card";
 import type { BlogPost } from "@/types/post";
+import Link from "next/link";
 
 type TrendingPostsAsideProps = {
 	posts: BlogPost[];
@@ -19,13 +20,14 @@ export function TrendingPostsAside({ posts, className }: TrendingPostsAsideProps
 
 			<div className="space-y-12">
 				{posts.map((post, index) => (
-					<TrendCard
-						key={post._id}
-						title={post.attributes.title}
-						author={post.attributes.authors[0]}
-						number={index + 1}
-						avatar="/jonathan-stewart.png"
-					/>
+					<Link key={post._id} href={`/blog/${post.attributes.slug}`}>
+						<TrendCard
+							title={post.attributes.title}
+							author={post.attributes.authors[0]}
+							number={index + 1}
+							avatar="/jonathan-stewart.png"
+						/>
+					</Link>
 				))}
 			</div>
 		</aside>

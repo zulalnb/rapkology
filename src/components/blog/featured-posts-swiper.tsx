@@ -25,11 +25,8 @@ export function FeaturedPostsSwiper({ posts }: Props) {
 					swiperRef.current = swiper;
 				}}
 				onSlideChange={(s: SwiperType) => setActiveIndex(s.realIndex)}
-				onAfterInit={(swiper) => {
-					swiper.autoplay.start();
-				}}
 				loop
-				autoplay={false}
+				autoplay={{ delay: 9000, disableOnInteraction: false }}
 				speed={1000}
 				slidesPerView={1}
 				className="w-full"
@@ -64,7 +61,7 @@ export function FeaturedPostsSwiper({ posts }: Props) {
 			</Swiper>
 
 			{/* Custom Pagination */}
-			<div className="mt-6 flex justify-center md:absolute md:top-[calc((9/16*100cqw)+1.5rem)] md:right-[6%] md:z-50 md:mt-0 md:block">
+			<div className="mt-6 flex justify-center md:absolute md:top-[calc((9/16*100cqw)+1.5rem)] md:right-[6%] md:mt-0 md:block">
 				<div className="flex items-center gap-2">
 					{posts.map((_, index) => {
 						const isActive = index === activeIndex;

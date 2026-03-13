@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { BlogPost } from "@/types/post";
 import { CompactPostCard } from "@/components/blog/cards/compact-post-card";
@@ -17,20 +18,23 @@ export function MorePostsSection({ posts, className }: MorePostsSectionProps) {
 
 			<div className="space-y-10">
 				{posts.map((post) => (
-					<CompactPostCard
-						key={post._id}
-						title={post.attributes.title}
-						image={post.attributes.img}
-						sizes="178px"
-					/>
+					<Link key={post._id} href={`/blog/${post.attributes.slug}`} className="block">
+						<CompactPostCard
+							key={post._id}
+							title={post.attributes.title}
+							image={post.attributes.img}
+							sizes="178px"
+						/>
+					</Link>
 				))}
 			</div>
 			<div className="mt-34 flex justify-center sm:mt-20">
 				<Button
 					size="lg"
 					className="rounded-none bg-white font-bold [clip-path:polygon(95%_100%,100%_0,0_2%,5%_90%)]"
+					asChild
 				>
-					Tümünü Gör
+					<Link href="/blog">Tümünü Gör</Link>
 				</Button>
 			</div>
 		</section>

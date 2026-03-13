@@ -4,6 +4,15 @@ import "./globals.css";
 import Providers from "./providers";
 import Header from "@/components/header";
 import { Footer } from "@/components/footer";
+import { BASE_URL } from "@/lib/constants";
+
+const NEXT_VERSION = process.env.NEXT_PUBLIC_NEXT_VERSION
+	? `Next.js ${process.env.NEXT_PUBLIC_NEXT_VERSION}`
+	: "Next.js";
+
+const metaTitle = "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri";
+const metaDescription =
+	"Rapkology, rap müziğin derinliklerine dalın. Rap sanatçıları, sözler ve şarkılar hakkında kapsamlı bilgiler, analizler ve daha fazlası. Rap dünyasının incelikleri burada!";
 
 const saira = Saira({
 	variable: "--font-saira",
@@ -19,16 +28,19 @@ const sairaCondensed = Saira_Condensed({
 });
 
 export const metadata: Metadata = {
+	metadataBase: new URL(BASE_URL),
 	title: {
-		default: "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri",
+		default: metaTitle,
 		template: "%s - Rapkology",
 	},
-	description:
-		"Rapkology, rap müziğin derinliklerine dalın. Rap sanatçıları, sözler ve şarkılar hakkında kapsamlı bilgiler, analizler ve daha fazlası. Rap dünyasının incelikleri burada!",
+	description: metaDescription,
+	generator: NEXT_VERSION,
 	openGraph: {
-		title: "Rapkology - Rap Kültürünün İncelikleri, Sanatçı Profil ve Şarkı Analizleri",
-		description:
-			"Rapkology, rap müziğin derinliklerine dalın. Rap sanatçıları, sözler ve şarkılar hakkında kapsamlı bilgiler, analizler ve daha fazlası. Rap dünyasının incelikleri burada!",
+		title: metaTitle,
+		description: metaDescription,
+		locale: "tr_TR",
+		type: "website",
+		siteName: "Rapkology",
 	},
 };
 

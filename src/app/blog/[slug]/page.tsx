@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getPostBySlug, getPostPageData } from "@/lib/fetch-posts";
 import {
 	Breadcrumb,
@@ -8,11 +10,10 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { BlogPostArticle } from "@/components/blog/blog-post-article";
 import { TrendingPostsAside } from "@/components/blog/trending-posts-aside";
 import { MorePostsSection } from "@/components/blog/more-posts-section";
+import { sharedOpenGraph } from "@/app/shared-metadata";
 
 type Props = {
 	params: Promise<{ slug: string }>;
@@ -37,10 +38,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 			canonical,
 		},
 		openGraph: {
+			...sharedOpenGraph,
 			title,
 			description,
 			images: [post.attributes.img],
 			url: canonical,
+			type: "article",
+			authors: post.attributes.authors,
+			tags: post.attributes.tags,
+			publishedTime: post.createdAt,
+			modifiedTime: post.updatedAt,
 		},
 	};
 }

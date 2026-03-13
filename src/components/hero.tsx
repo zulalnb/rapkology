@@ -43,9 +43,6 @@ export default function Hero() {
 					onSwiper={(swiper) => {
 						swiperRef.current = swiper;
 					}}
-					onAfterInit={(swiper) => {
-						swiper.autoplay.start();
-					}}
 					navigation={{
 						nextEl: ".hero-next",
 						prevEl: ".hero-prev",
@@ -54,7 +51,7 @@ export default function Hero() {
 					fadeEffect={{ crossFade: true }}
 					slidesPerView={1}
 					loop
-					autoplay={false}
+					autoplay={{ delay: 9000, disableOnInteraction: false }}
 					speed={800}
 					pagination={{
 						el: ".hero-pagination",
