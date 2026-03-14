@@ -6,7 +6,7 @@ It includes a homepage, a blog listing page, and dynamic blog detail pages with 
 ## Live Demo
 
 You can check out the live demo of this project here:
-[Live Demo](https://rick-and-morty-explorer-lyart.vercel.app/)
+[Live Demo](https://rapkology-sigma.vercel.app/)
 
 ## Tech Stack
 
